@@ -136,7 +136,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // ? buat container list buku
     const incompleteBookList = document.createElement("div");
     incompleteBookList.classList.add("incompleteBookList");
-    incompleteBookList.setAttribute("data-testid", "incompleteBookList")
+    // incompleteBookList.setAttribute("data-testid", "incompleteBookList")
 
     const bookItemIncomp = document.createElement("div");
     bookItemIncomp.setAttribute("data-bookid", id);
@@ -208,7 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         not2already.id = "completeBookList";
         not2already.classList.replace("incompleteBookList", "completeBookList");
-        not2already.setAttribute("data-testid", "completeBookList");
+        // not2already.setAttribute("data-testid", "completeBookList");
         isCompleteBtn.innerText = "Belum Dibaca";
       } else if (e.target.innerText == "Belum Dibaca") {
         completeBookSect.removeChild(not2already);
@@ -216,7 +216,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         not2already.id = "incompleteBookList";
         not2already.classList.replace("completeBookList", "incompleteBookList");
-        not2already.setAttribute("data-testid", "incompleteBookList");
+        // not2already.setAttribute("data-testid", "incompleteBookList");
         isCompleteBtn.innerText = "Selesai diBaca";
       }
       updateLocalStorage();
