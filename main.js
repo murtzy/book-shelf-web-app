@@ -107,7 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
         .innerText.replace("Tahun : ", "");
       // Mengambil teks tahun terbit buku dari elemen dengan data-testid 'bookItemYear', menghapus kata "Tahun : ", dan menyimpannya dalam variabel year.
 
-      const isComplete = item.parentElement.id === "completeBookList";
+      const isComplete = item.parentElement.getAttribute("data-testid") === "completeBookList";
       // Mengecek apakah buku tersebut berada di dalam elemen dengan id 'completeBookList' untuk menentukan status isComplete.
 
       books.push({
@@ -135,8 +135,8 @@ window.addEventListener("DOMContentLoaded", () => {
     // todo: Incomplete Book List
     // ? buat container list buku
     const incompleteBookList = document.createElement("div");
-    incompleteBookList.classList.add("incompleteBookList");
-    // incompleteBookList.setAttribute("data-testid", "incompleteBookList")
+    incompleteBookList.classList.add("rungRampungMoco")
+    incompleteBookList.setAttribute("data-testid", "incompleteBookList")
 
     const bookItemIncomp = document.createElement("div");
     bookItemIncomp.setAttribute("data-bookid", id);
@@ -145,7 +145,8 @@ window.addEventListener("DOMContentLoaded", () => {
     // todo : complete book list
     // ? jika selesai di baca tecentang
     const completeBookList = document.createElement("div");
-    completeBookList.classList.add("completeBookList");
+    completeBookList.classList.add("wsRampungMoco")
+    completeBookList.setAttribute("data-testid", "completeBookList")
 
     const bookItemComp = document.createElement("div");
     bookItemComp.setAttribute("data-bookid", id);
@@ -206,17 +207,15 @@ window.addEventListener("DOMContentLoaded", () => {
         incompleteBookSect.removeChild(not2already);
         completeBookSect.appendChild(not2already);
 
-        not2already.id = "completeBookList";
-        not2already.classList.replace("incompleteBookList", "completeBookList");
-        // not2already.setAttribute("data-testid", "completeBookList");
+        not2already.classList.replace("rungRampungMoco", "wsRampungMoco");
+        not2already.setAttribute("data-testid", "completeBookList");
         isCompleteBtn.innerText = "Belum Dibaca";
       } else if (e.target.innerText == "Belum Dibaca") {
         completeBookSect.removeChild(not2already);
         incompleteBookSect.appendChild(not2already);
 
-        not2already.id = "incompleteBookList";
-        not2already.classList.replace("completeBookList", "incompleteBookList");
-        // not2already.setAttribute("data-testid", "incompleteBookList");
+        not2already.classList.replace("wsRampungMoco", "rungRampungMoco");
+        not2already.setAttribute("data-testid", "incompleteBookList");
         isCompleteBtn.innerText = "Selesai diBaca";
       }
       updateLocalStorage();
@@ -226,9 +225,9 @@ window.addEventListener("DOMContentLoaded", () => {
     delBtn.addEventListener("click", (e) => {
       const delBook = e.target.parentElement.parentElement.parentElement;
       console.log(delBook)
-      if (delBook.className == "incompleteBookList") {
+      if (delBook.className == "rungRampungMoco") {
         incompleteBookSect.removeChild(delBook);
-      } else if (delBook.className == "completeBookList") {
+      } else if (delBook.className == "wsRampungMoco") {
         completeBookSect.removeChild(delBook);
       }
       updateLocalStorage();
