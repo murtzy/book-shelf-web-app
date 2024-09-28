@@ -11,6 +11,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const span = bookFormSubmit.querySelector("span");
   const incompleteBookSect = document.getElementById("incompleteBookSect");
   const completeBookSect = document.getElementById("completeBookSect");
+  const incompleteBookList = document.querySelector("[data-testid = 'incompleteBookList']");
+  const completeBookList = document.querySelector("[data-testid = 'completeBookList']");
 
   // ? kondisi ketika "Selesai dibaca" checked or unchecked
   isCompleted.addEventListener("change", () => {
@@ -134,23 +136,17 @@ window.addEventListener("DOMContentLoaded", () => {
       */
     // todo: Incomplete Book List
     // ? buat container list buku
-    const incompleteBookList = document.createElement("div");
-    incompleteBookList.classList.add("rungRampungMoco")
-    incompleteBookList.setAttribute("data-testid", "incompleteBookList")
-
     const bookItemIncomp = document.createElement("div");
     bookItemIncomp.setAttribute("data-bookid", id);
     bookItemIncomp.setAttribute("data-testid", "bookItem");
+    bookItemIncomp.classList.add("incompleteBook");
 
     // todo : complete book list
     // ? jika selesai di baca tecentang
-    const completeBookList = document.createElement("div");
-    completeBookList.classList.add("wsRampungMoco")
-    completeBookList.setAttribute("data-testid", "completeBookList")
-
     const bookItemComp = document.createElement("div");
     bookItemComp.setAttribute("data-bookid", id);
     bookItemComp.setAttribute("data-testid", "bookItem");
+    bookItemComp.classList.add("completeBook");
 
     // ? buat isi dari list buku
     const judulBuku = document.createElement("h3");
@@ -187,35 +183,30 @@ window.addEventListener("DOMContentLoaded", () => {
     containerBtn.append(isCompleteBtn, delBtn, editBtn);
 
     if (sudahSelesai) {
-      completeBookSect.appendChild(completeBookList);
-      completeBookList.appendChild(bookItemComp);
       bookItemComp.append(judulBuku, authorBuku, terbitBuku, containerBtn);
+      completeBookList.appendChild(bookItemComp);
       isCompleteBtn.innerText = "Belum Dibaca";
     } else {
-      incompleteBookSect.appendChild(incompleteBookList);
+      bookItemIncomp.append(judulBuku, authorBuku, terbitBuku,containerBtn);
       incompleteBookList.appendChild(bookItemIncomp);
-
-      bookItemIncomp.append(judulBuku, authorBuku, terbitBuku);
-      bookItemIncomp.append(containerBtn);
     }
 
     // todo : belum dibaca ke selesai dibaca
     isCompleteBtn.addEventListener("click", (e) => {
-      const not2already = e.target.parentElement.parentElement.parentElement;
+      const not2already = e.target.parentElement.parentElement;
+      console.log(not2already)
 
       if (e.target.innerText == "Selesai diBaca") {
-        incompleteBookSect.removeChild(not2already);
-        completeBookSect.appendChild(not2already);
+        incompleteBookList.removeChild(not2already);
+        completeBookList.appendChild(not2already);
 
-        not2already.classList.replace("rungRampungMoco", "wsRampungMoco");
-        not2already.setAttribute("data-testid", "completeBookList");
+        not2already.classList.replace("incompleteBook", "completeBook");
         isCompleteBtn.innerText = "Belum Dibaca";
       } else if (e.target.innerText == "Belum Dibaca") {
-        completeBookSect.removeChild(not2already);
-        incompleteBookSect.appendChild(not2already);
+        completeBookList.removeChild(not2already);
+        incompleteBookList.appendChild(not2already);
 
-        not2already.classList.replace("wsRampungMoco", "rungRampungMoco");
-        not2already.setAttribute("data-testid", "incompleteBookList");
+        not2already.classList.replace("completeBook", "incompleteBook");
         isCompleteBtn.innerText = "Selesai diBaca";
       }
       updateLocalStorage();
@@ -223,12 +214,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // todo : menghapus buku
     delBtn.addEventListener("click", (e) => {
-      const delBook = e.target.parentElement.parentElement.parentElement;
+      const delBook = e.target.parentElement.parentElement;
       console.log(delBook)
-      if (delBook.className == "rungRampungMoco") {
-        incompleteBookSect.removeChild(delBook);
-      } else if (delBook.className == "wsRampungMoco") {
-        completeBookSect.removeChild(delBook);
+      if (delBook.className === "incompleteBook") {
+        incompleteBookList.removeChild(delBook);
+      } else if (delBook.className == "completeBook") {
+        completeBookList.removeChild(delBook);
       }
       updateLocalStorage();
     });
