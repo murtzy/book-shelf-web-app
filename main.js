@@ -157,12 +157,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const authorBuku = document.createElement("p");
     authorBuku.classList.add("author");
     authorBuku.setAttribute("data-testid", "bookItemAuthor");
-    authorBuku.innerText = `Penulis : ${penulis}`;
+    authorBuku.innerHTML = `<b>Penulis : </b> ${penulis}`;
 
     const terbitBuku = document.createElement("p");
     terbitBuku.classList.add("year");
     terbitBuku.setAttribute("data-testid", "bookItemYear");
-    terbitBuku.innerText = `Tahun : ${Number(tahunTerbit)}`;
+    terbitBuku.innerHTML = `<b>Tahun : </b> ${Number(tahunTerbit)}`;
 
     // ? bagian tombol
     const containerBtn = document.createElement("div");
@@ -237,7 +237,7 @@ window.addEventListener("DOMContentLoaded", () => {
         judulBuku.setAttribute("contenteditable", "true");
         authorBuku.setAttribute("contenteditable", "true");
         terbitBuku.setAttribute("contenteditable", "true");
-        e.target.innerText = "Simpan Perubahan";
+        e.target.innerText = "Simpan";
         judulBuku.style.color = "red";
         authorBuku.style.color = "red";
         terbitBuku.style.color = "red";

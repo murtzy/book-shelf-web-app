@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: blanchedalmond;
+}
+
+main, header {
+  max-width: 800px;
+  width: 100%;
+  margin: 70px auto;
+}
+
+header {
+  font-size: 2rem;
+}
+
+button {
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  background-color:burlywood;
+  border-radius: .4rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background-color:peru;
+}
+
+#bookForm label:not([for="bookFormIsComplete"]) {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#bookForm input:not([type="checkbox"]) {
+  margin-bottom: 20px;
+  padding: .5rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: .4rem;
+}
+
+#bagianInput {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+#bagianInput h2 {
+  margin-bottom: 30px;
+}
+
+#bagianInput .bagianTambahBuku {
+  flex: 2 1 0%;
+}
+
+#bagianInput .bagianTambahBuku h2 {
+  font-size: 2em;
+}
+
+#bookFormSubmit {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+#bagianInput .gambar {
+  flex: 1 1 0%;
+  width: 200px;
+  margin-left: 30px;
+  margin-top: calc(2em + 35px);
+  height: 200px;
+}
+
+#bagianInput .gambar img {
+  width: 230px;
+}
+
+.rungRampungMoco, .wsRampungMoco {
+  /* background-color:violet; */
+  margin: 20px 0;
+}
+
+#rakBuku {
+  display: flex;
+  /* justify-content: space-between; */
+  column-gap: calc(800px - 779.966px);
+
+}
+
+.incompleteBook {
+  background-color:salmon;
+}
+
+.completeBook {
+  background-color:mediumseagreen;
+  
+}
+
+.incompleteBook, .completeBook {
+  padding: 15px 20px;
+  border-radius: .4rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.author {
+  text-transform: capitalize;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 350px;
+}
+

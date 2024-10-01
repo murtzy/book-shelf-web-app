@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Bookshelf App</title>
 
     <!-- Impor script kamu di sini -->
@@ -15,79 +16,78 @@
     </header>
 
     <main>
-      <section>
-        <h2>Tambah Buku Baru</h2>
-        <form id="bookForm" data-testid="bookForm">
-          <div>
-            <label for="bookFormTitle">Judul</label>
-            <input
-              id="bookFormTitle"
-              type="text"
-              required
-              data-testid="bookFormTitleInput" />
-          </div>
-          <div>
-            <label for="bookFormAuthor">Penulis</label>
-            <input
-              id="bookFormAuthor"
-              type="text"
-              required
-              data-testid="bookFormAuthorInput" />
-          </div>
-          <div>
-            <label for="bookFormYear">Tahun</label>
-            <input
-              id="bookFormYear"
-              type="number"
-              required
-              data-testid="bookFormYearInput" />
-          </div>
-          <div>
-            <label for="bookFormIsComplete">Selesai dibaca</label>
-            <input
-              id="bookFormIsComplete"
-              type="checkbox"
-              data-testid="bookFormIsCompleteCheckbox" />
-          </div>
-          <button
-            id="bookFormSubmit"
-            type="submit"
-            data-testid="bookFormSubmitButton">
-            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
-          </button>
-        </form>
-      </section>
+      <section id="bagianInput">
+        <div class="bagianTambahBuku">
+          <h2>Tambah Buku Baru</h2>
+          <form id="bookForm" data-testid="bookForm" autocomplete="off">
+            <div>
+              <label for="bookFormTitle">Judul</label>
+              <input
+                id="bookFormTitle"
+                type="text"
+                required
+                data-testid="bookFormTitleInput" />
+            </div>
+            <div>
+              <label for="bookFormAuthor">Penulis</label>
+              <input
+                id="bookFormAuthor"
+                type="text"
+                required
+                data-testid="bookFormAuthorInput" />
+            </div>
+            <div>
+              <label for="bookFormYear">Tahun</label>
+              <input
+                id="bookFormYear"
+                type="number"
+                required
+                data-testid="bookFormYearInput" />
+            </div>
+            <div>
+              <input
+                id="bookFormIsComplete"
+                type="checkbox"
+                data-testid="bookFormIsCompleteCheckbox" />
+              <label for="bookFormIsComplete">Selesai dibaca</label>
+            </div>
+            <button
+              id="bookFormSubmit"
+              type="submit"
+              data-testid="bookFormSubmitButton">
+              Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+            </button>
+          </form>
+        </div>
 
-      <section>
-        <h2>Cari Buku</h2>
-        <form id="searchBook" data-testid="searchBookForm">
-          <label for="searchBookTitle">Judul</label>
-          <input
-            id="searchBookTitle"
-            type="text"
-            data-testid="searchBookFormTitleInput" />
-          <button
-            id="searchSubmit"
-            type="submit"
-            data-testid="searchBookFormSubmitButton">
-            Cari
-          </button>
-        </form>
-      </section>
-
-      <section id="incompleteBookSect">
-        <h2>Belum selesai dibaca</h2>
-        <div class="rungRampungMoco" data-testid="incompleteBookList">
-
+        <div class="gambar">
+          <img src="assets/book.png" alt="book" />
         </div>
       </section>
 
-      <section id="completeBookSect">
-        <h2>Selesai dibaca</h2>
-        <div class="wsRampungMoco" data-testid="completeBookList">
+      <div id="rakBuku">
+        <section id="incompleteBookSect">
+          <h2>Belum selesai dibaca</h2>
+          <div class="rungRampungMoco" data-testid="incompleteBookList">
+            <!-- 
+          <div data-bookid="1727754456143" data-testid="bookItem" class="incompleteBook">
+            <h3 class="title" data-testid="bookItemTitle">buku satu</h3>
+            <p class="author" data-testid="bookItemAuthor">Penulis : fulan</p>
+            <p class="year" data-testid="bookItemYear">Tahun : 2023</p>
+            <div class="buttonContainer">
+              <button data-testid="bookItemIsCompleteButton">Selesai diBaca</button>
+              <button data-testid="bookItemDeleteButton">Hapus Buku</button>
+              <button data-testid="bookItemEditButton">Edit Buku</button>
+            </div>
+          </div>
+          --></div>
+        </section>
 
-        </div>
-      </section>
+        <section id="completeBookSect">
+          <h2>Selesai dibaca</h2>
+          <div class="wsRampungMoco" data-testid="completeBookList"></div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
