@@ -13,6 +13,7 @@ main, header {
   max-width: 800px;
   width: 100%;
   margin: 70px auto;
+  /* border: 1px solid black; */
 }
 
 header {
@@ -88,9 +89,17 @@ button:hover {
 
 #rakBuku {
   display: flex;
-  /* justify-content: space-between; */
-  column-gap: calc(800px - 779.966px);
+  justify-content: space-between;
+}
 
+#incompleteBookSect {
+  /* background-color: chartreuse; */
+  min-width: 49%;
+}
+
+#completeBookSect {
+  /* background-color: blue; */
+  min-width: 49%;
 }
 
 .incompleteBook {
@@ -105,6 +114,7 @@ button:hover {
 .incompleteBook, .completeBook {
   padding: 15px 20px;
   border-radius: .4rem;
+  margin-bottom: 20px;
 }
 
 .title {
