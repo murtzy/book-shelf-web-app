@@ -279,6 +279,10 @@ window.addEventListener("DOMContentLoaded", () => {
       isCompleted.checked
     );
     saveData();
+
+    penulisInput.value = ""
+    judulInput.value = "";
+    terbitInput.value = "";
   });
 
   // Load data saat halaman pertama kali dibuka
